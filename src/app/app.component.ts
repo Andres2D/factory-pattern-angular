@@ -29,4 +29,8 @@ export class AppComponent {
       action: 'background'
     }
   ];
+
+  executeAction(): void {
+    console.log('Execute action');
+  }
 }

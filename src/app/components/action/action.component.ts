@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-action',
   templateUrl: './action.component.html',
   styleUrls: ['./action.component.scss']
 })
-export class ActionComponent implements OnInit {
+export class ActionComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  @Input() title = '';
+  @Output() onExecute = new EventEmitter();
+  
+  onClick(): void {
+    this.onExecute.emit();
   }
-
 }

@@ -1,3 +1,5 @@
 <section class='actions'>
-  <app-action *ngFor='let action of DUMMY_DATA'></app-action>
+  <ng-container *ngFor='let action of DUMMY_DATA'>
+    <app-action [title]='action.title' (onExecute)="executeAction()"></app-action>
+  </ng-container>
 </section>
