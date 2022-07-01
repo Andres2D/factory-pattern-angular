@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ActionComponent } from './components/action/action.component';
+import { providers } from './app.component.providers';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { ActionComponent } from './components/action/action.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [...providers],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

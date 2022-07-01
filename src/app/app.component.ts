@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Injector, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { BackgroundService } from './services/background.service';
+import { provider } from './app.component.providers';
+import { ActionBase } from './actions';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+
   title = 'factory-pattern-angular';
   DUMMY_DATA = [
     {
@@ -29,8 +34,22 @@ export class AppComponent {
       action: 'background'
     }
   ];
+  backgroundSubs?: Subscription;
+  backgroundColor = '#333';
 
-  executeAction(): void {
-    console.log('Execute action');
+  constructor(private backgroundService: BackgroundService, private readonly injector: Injector) {}
+
+  ngOnInit(): void{
+    this.backgroundSubs = this.backgroundService.background.subscribe(res => {
+      this.backgroundColor = `#${res}`;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.backgroundSubs?.unsubscribe();
+  }
+
+  executeAction(id: string): void {
+    this.injector.get<ActionBase>(provider[id].token).execute();
   }
 }

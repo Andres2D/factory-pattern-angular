@@ -1,5 +1,5 @@
-<section class='actions'>
+<section [style.background-color]="backgroundColor" class='actions'>
   <ng-container *ngFor='let action of DUMMY_DATA'>
-    <app-action [title]='action.title' (onExecute)="executeAction()"></app-action>
+    <app-action [title]='action.title' (onExecute)="executeAction(action.action)"></app-action>
   </ng-container>
 </section>
