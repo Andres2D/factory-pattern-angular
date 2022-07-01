@@ -1,0 +1,30 @@
+.card {
+  border: 2px solid white;
+  // padding: 50px;
+  margin-bottom: 20px;
+  border-radius: 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  height: 150px;
+
+  .title {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-top: 2px solid white;
+    cursor: pointer;
+    font-size: 20px;
+
+    &:hover {
+      background-color: white;
+      color: #333;
+    }
+  }
+}

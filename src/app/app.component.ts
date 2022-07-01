@@ -7,4 +7,26 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'factory-pattern-angular';
+  DUMMY_DATA = [
+    {
+      id: '01',
+      title: 'Alert',
+      action: 'alert'
+    },
+    {
+      id: '02',
+      title: 'Console log',
+      action: 'console'
+    },
+    {
+      id: '03',
+      title: 'Redirect',
+      action: 'redirect'
+    },
+    {
+      id: '04',
+      title: 'Change backgorund',
+      action: 'background'
+    }
+  ];
 }
